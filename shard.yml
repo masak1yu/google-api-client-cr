@@ -1,0 +1,9 @@
+name: google-api-client-cr
+version: 0.1.0
+
+authors:
+  - msky026 <pref.myu@gmail.com>
+
+crystal: 0.26.0
+
+license: MIT
