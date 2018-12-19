@@ -1,4 +1,5 @@
-# TODO: Write documentation for `Google::Api::Client::Cr`
+require "./google/apis/**"
+
 module Google::Api::Client::Cr
   VERSION = "0.1.0"
 

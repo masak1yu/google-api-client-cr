@@ -3,7 +3,7 @@ module Google
     module Core
       # Command for HTTP request/response.
       class HttpCommand
-        def initialize(method, url, body: nil)
+        def initialize(method, url, body = nil)
         end
       end
     end
