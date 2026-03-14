@@ -1,4 +1,5 @@
 require "json"
+require "../core/pagination"
 
 module Google
   module Apis
@@ -85,6 +86,7 @@ module Google
 
       class SearchListsResponse
         include JSON::Serializable
+        include Google::Apis::Core::Paginated
 
         property etag : String?
 
@@ -228,6 +230,7 @@ module Google
 
       class ListVideosResponse
         include JSON::Serializable
+        include Google::Apis::Core::Paginated
 
         property etag : String?
 
@@ -346,6 +349,7 @@ module Google
 
       class ListChannelsResponse
         include JSON::Serializable
+        include Google::Apis::Core::Paginated
 
         property etag : String?
 
@@ -421,6 +425,7 @@ module Google
 
       class ListPlaylistsResponse
         include JSON::Serializable
+        include Google::Apis::Core::Paginated
 
         property etag : String?
 
@@ -516,6 +521,7 @@ module Google
 
       class ListPlaylistItemsResponse
         include JSON::Serializable
+        include Google::Apis::Core::Paginated
 
         property etag : String?
 
@@ -605,6 +611,7 @@ module Google
 
       class ListCommentsResponse
         include JSON::Serializable
+        include Google::Apis::Core::Paginated
 
         property etag : String?
 
@@ -665,6 +672,7 @@ module Google
 
       class ListCommentThreadsResponse
         include JSON::Serializable
+        include Google::Apis::Core::Paginated
 
         property etag : String?
 
@@ -729,6 +737,7 @@ module Google
 
       class ListSubscriptionsResponse
         include JSON::Serializable
+        include Google::Apis::Core::Paginated
 
         property etag : String?
 
@@ -1058,6 +1067,7 @@ module Google
 
       class ListActivitiesResponse
         include JSON::Serializable
+        include Google::Apis::Core::Paginated
 
         property etag : String?
 
@@ -1214,6 +1224,7 @@ module Google
 
       class ListLiveBroadcastsResponse
         include JSON::Serializable
+        include Google::Apis::Core::Paginated
 
         property etag : String?
 
@@ -1313,6 +1324,7 @@ module Google
 
       class ListLiveStreamsResponse
         include JSON::Serializable
+        include Google::Apis::Core::Paginated
 
         property etag : String?
 
@@ -1447,6 +1459,7 @@ module Google
 
       class LiveChatMessageListResponse
         include JSON::Serializable
+        include Google::Apis::Core::Paginated
 
         property etag : String?
 
@@ -1510,6 +1523,7 @@ module Google
 
       class LiveChatModeratorListResponse
         include JSON::Serializable
+        include Google::Apis::Core::Paginated
 
         property etag : String?
 
@@ -1597,6 +1611,7 @@ module Google
 
       class MemberListResponse
         include JSON::Serializable
+        include Google::Apis::Core::Paginated
 
         property etag : String?
 
@@ -1696,6 +1711,7 @@ module Google
 
       class SuperChatEventListResponse
         include JSON::Serializable
+        include Google::Apis::Core::Paginated
 
         property etag : String?
 
@@ -1910,6 +1926,7 @@ module Google
 
       class PlaylistImageListResponse
         include JSON::Serializable
+        include Google::Apis::Core::Paginated
 
         property items : Array(PlaylistImage)?
         property kind : String?

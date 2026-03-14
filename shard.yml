@@ -1,5 +1,5 @@
 name: google-api-client-cr
-version: 0.1.0
+version: 0.1.1
 
 authors:
   - masak1yu <antilogic@outlook.com>
@@ -7,6 +7,8 @@ authors:
 description: |
   A Crystal client for the Google YouTube Data API v3.
   Ported from google-api-ruby-client with full API coverage (83 methods).
+  Includes retry/backoff, pagination, batch requests, resumable upload,
+  OAuth2/Service Account auth, and token persistence.
 
 crystal: ">= 1.19.0"
 

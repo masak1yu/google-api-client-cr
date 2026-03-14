@@ -1,0 +1,45 @@
+{
+  "kind": "youtube#videoListResponse",
+  "etag": "test_etag",
+  "pageInfo": {
+    "totalResults": 1,
+    "resultsPerPage": 1
+  },
+  "items": [
+    {
+      "kind": "youtube#video",
+      "etag": "video_etag",
+      "id": "abc123",
+      "snippet": {
+        "publishedAt": "2024-01-01T00:00:00Z",
+        "channelId": "UCxxx",
+        "title": "Test Video Title",
+        "description": "Test description",
+        "tags": ["test", "crystal"],
+        "categoryId": "22",
+        "channelTitle": "Test Channel",
+        "defaultLanguage": "en",
+        "defaultAudioLanguage": "en"
+      },
+      "statistics": {
+        "viewCount": "12345",
+        "likeCount": "100",
+        "commentCount": "10"
+      },
+      "status": {
+        "uploadStatus": "processed",
+        "privacyStatus": "public",
+        "embeddable": true,
+        "madeForKids": false
+      },
+      "contentDetails": {
+        "duration": "PT10M30S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": true,
+        "projection": "rectangular"
+      }
+    }
+  ]
+}
