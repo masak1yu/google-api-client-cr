@@ -1,9 +1,14 @@
 module Google
   module Apis
     module Core
-      # Command for HTTP request/response.
       class HttpCommand
-        def initialize(method, url, body = nil)
+        property method : String
+        property url : String
+        property body : String?
+        property query : Hash(String, String?)
+
+        def initialize(@method : String, @url : String, @body : String? = nil)
+          @query = {} of String => String?
         end
       end
     end
