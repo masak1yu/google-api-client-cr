@@ -4,6 +4,15 @@ require "uri"
 
 module Google
   module Auth
+    # OAuth2 client for Google API authentication.
+    # Supports authorization code flow, token refresh, and credential persistence.
+    #
+    # ```
+    # oauth = Google::Auth::OAuth2Client.new(client_id, client_secret)
+    # url = oauth.authorization_url(scope: Google::Auth::Scopes::YOUTUBE)
+    # # User visits URL, gets code
+    # oauth.authorize(code)
+    # ```
     class OAuth2Client
       GOOGLE_AUTH_URL  = "https://accounts.google.com/o/oauth2/v2/auth"
       GOOGLE_TOKEN_URL = "oauth2.googleapis.com"
@@ -74,7 +83,7 @@ module Google
       # Check if the token is expired
       def expired? : Bool
         return true unless ea = @expires_at
-        Time.utc < ea
+        Time.utc >= ea
       end
 
       # Get a valid access token, refreshing if necessary
@@ -117,13 +126,13 @@ module Google
 
     # YouTube API OAuth2 scopes
     module Scopes
-      YOUTUBE                           = "https://www.googleapis.com/auth/youtube"
-      YOUTUBE_READONLY                  = "https://www.googleapis.com/auth/youtube.readonly"
-      YOUTUBE_UPLOAD                    = "https://www.googleapis.com/auth/youtube.upload"
-      YOUTUBE_FORCE_SSL                 = "https://www.googleapis.com/auth/youtube.force-ssl"
-      YOUTUBE_CHANNEL_MEMBERSHIPS       = "https://www.googleapis.com/auth/youtube.channel-memberships.creator"
-      YOUTUBE_PARTNER                   = "https://www.googleapis.com/auth/youtubepartner"
-      YOUTUBE_PARTNER_CHANNEL_AUDIT     = "https://www.googleapis.com/auth/youtubepartner-channel-audit"
+      YOUTUBE                       = "https://www.googleapis.com/auth/youtube"
+      YOUTUBE_READONLY              = "https://www.googleapis.com/auth/youtube.readonly"
+      YOUTUBE_UPLOAD                = "https://www.googleapis.com/auth/youtube.upload"
+      YOUTUBE_FORCE_SSL             = "https://www.googleapis.com/auth/youtube.force-ssl"
+      YOUTUBE_CHANNEL_MEMBERSHIPS   = "https://www.googleapis.com/auth/youtube.channel-memberships.creator"
+      YOUTUBE_PARTNER               = "https://www.googleapis.com/auth/youtubepartner"
+      YOUTUBE_PARTNER_CHANNEL_AUDIT = "https://www.googleapis.com/auth/youtubepartner-channel-audit"
     end
   end
 end

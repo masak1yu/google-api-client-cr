@@ -14,6 +14,19 @@ module Google
           self.access_token = oauth_client.valid_token
         end
 
+        # Set Service Account credentials and apply access token
+        def authorize(credentials : Google::Auth::ServiceAccountCredentials)
+          self.access_token = credentials.valid_token
+        end
+
+        # Execute multiple API requests in a single HTTP call (max 50)
+        def batch(&block : Google::Apis::Core::BatchRequest ->) : Array(HTTP::Client::Response)
+          auth = @access_token ? "Bearer #{@access_token}" : nil
+          batch_req = Google::Apis::Core::BatchRequest.new(@root_url, authorization: auth)
+          yield batch_req
+          batch_req.execute
+        end
+
         # ============================================================
         # Search
         # ============================================================

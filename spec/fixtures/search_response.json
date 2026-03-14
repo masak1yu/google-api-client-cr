@@ -1,0 +1,45 @@
+{
+  "kind": "youtube#searchListResponse",
+  "etag": "test_etag",
+  "nextPageToken": "CAUQAA",
+  "regionCode": "JP",
+  "pageInfo": {
+    "totalResults": 1000000,
+    "resultsPerPage": 5
+  },
+  "items": [
+    {
+      "kind": "youtube#searchResult",
+      "etag": "item_etag_1",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "abc123"
+      },
+      "snippet": {
+        "publishedAt": "2024-01-01T00:00:00Z",
+        "channelId": "UCxxx",
+        "title": "Test Video",
+        "description": "A test video",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/abc123/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/abc123/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/abc123/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "Test Channel",
+        "liveBroadcastContent": "none"
+      }
+    }
+  ]
+}
