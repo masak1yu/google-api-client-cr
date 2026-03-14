@@ -6,8 +6,12 @@ A Crystal client for the Google YouTube Data API v3, ported from [google-api-rub
 
 - YouTube Data API v3 full coverage (83 methods)
 - Type-safe response models with `JSON::Serializable` (127 classes)
-- API Key and OAuth2 authentication
-- File upload (multipart) and download support
+- API Key, OAuth2, and Service Account (JWT) authentication
+- Token persistence (save/load credentials to file)
+- File upload (multipart + resumable) and download support
+- Batch requests (up to 50 API calls in one HTTP request)
+- Automatic retry with exponential backoff on 429/5xx errors
+- Pagination helper for iterating over all result pages
 
 ### Supported Resources
 
@@ -126,6 +130,57 @@ playlist = Google::Apis::YoutubeV3::Playlist.from_json(%({
 }))
 created = youtube.insert_playlist("snippet,status", playlist)
 puts "Created playlist: #{created.id}"
+```
+
+### Service Account (server-to-server)
+
+```crystal
+require "google-api-client-cr"
+
+creds = Google::Auth::ServiceAccountCredentials.from_json_key(
+  "service-account-key.json",
+  scope: Google::Auth::Scopes::YOUTUBE_READONLY
+)
+
+youtube = Google::Apis::YoutubeV3::YouTubeService.new
+youtube.authorize(creds)
+```
+
+### Token Persistence
+
+```crystal
+# Save credentials after authorization
+oauth.save_credentials("tokens.json")
+
+# Restore in a later session
+oauth = Google::Auth::OAuth2Client.from_credentials(
+  "tokens.json", client_id: ENV["CLIENT_ID"], client_secret: ENV["CLIENT_SECRET"]
+)
+```
+
+### Batch Requests
+
+```crystal
+youtube.batch do |batch|
+  batch.add("GET", "/youtube/v3/videos?part=snippet&id=VIDEO1") do |response|
+    puts response.body
+  end
+  batch.add("GET", "/youtube/v3/videos?part=snippet&id=VIDEO2") do |response|
+    puts response.body
+  end
+end
+```
+
+### Pagination
+
+```crystal
+first_page = youtube.list_searches("snippet", q: "Crystal", max_results: 50)
+iterator = Google::Apis::Core::PageIterator.new(first_page) do |token|
+  youtube.list_searches("snippet", q: "Crystal", max_results: 50, page_token: token)
+end
+iterator.each do |page|
+  page.items.try &.each { |item| puts item.snippet.try &.title }
+end
 ```
 
 ## Requirements

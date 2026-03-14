@@ -5,7 +5,7 @@ module Google
     module Core
       class ApiCommand < HttpCommand
         JSON_CONTENT_TYPE = "application/json"
-        FIELDS_PARAM     = "fields"
+        FIELDS_PARAM      = "fields"
       end
     end
   end
