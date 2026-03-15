@@ -1,5 +1,7 @@
 # google-api-client-cr
 
+[![CI](https://github.com/masak1yu/google-api-client-cr/actions/workflows/ci.yml/badge.svg)](https://github.com/masak1yu/google-api-client-cr/actions/workflows/ci.yml)
+
 A Crystal client for the Google YouTube Data API v3, ported from [google-api-ruby-client](https://github.com/googleapis/google-api-ruby-client).
 
 ## Features
