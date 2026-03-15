@@ -27,6 +27,12 @@ module Google
           @key = ENV["API_KEY"]?
         end
 
+        # :nodoc:
+        # For testing: allows replacing the HTTP client with one pointing to a local test server.
+        protected def client=(client : HTTP::Client)
+          @client = client
+        end
+
         # Execute an HTTP request with automatic retry on transient errors.
         def execute(method : String, path : String, query : Hash(String, String?) = {} of String => String?,
                     body : String? = nil, headers : HTTP::Headers? = nil) : HTTP::Client::Response
