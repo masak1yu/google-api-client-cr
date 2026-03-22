@@ -1,0 +1,17 @@
+{
+  "name": "google-api-client-cr",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "postCreateCommand": "shards install",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "crystal-lang-tools.crystal-lang"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
+    }
+  }
+}
