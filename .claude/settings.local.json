@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(tree -L 3 /Users/ma.uchida/workspace/google-api-client-cr --charset ascii -I '.git' 2>/dev/null || find /Users/ma.uchida/workspace/google-api-client-cr -not -path '*/.git/*' -type f ! -path '*/.*' | sort)",
+      "Bash(grep \"def \" /Users/ma.uchida/workspace/google-api-ruby-client/generated/google-apis-youtube_v3/lib/google/apis/youtube_v3/service.rb | grep -v \"^#\" | sed 's/.*def //' | sed 's/\\(.*$//' | sort)",
+      "Read(//Users/ma.uchida/workspace/google-api-client-cr/**)",
+      "Bash(ruby /tmp/analyze_yt_methods.rb)",
+      "Bash(asdf list:*)",
+      "Bash(asdf exec:*)",
+      "Bash(API_KEY=\"REDACTED\" asdf exec crystal run examples/search_example.cr 2>&1)",
+      "Bash(API_KEY=\"REDACTED\" asdf exec crystal run examples/videos_channels_example.cr 2>&1)",
+      "Bash(API_KEY=\"REDACTED\" asdf exec crystal run examples/playlist_comments_example.cr 2>&1)",
+      "Bash(API_KEY=\"REDACTED\" asdf exec crystal run examples/search_example.cr 2>&1 && API_KEY=\"REDACTED\" asdf exec crystal run examples/videos_channels_example.cr 2>&1)",
+      "Bash(API_KEY=\"REDACTED\" asdf exec crystal run examples/phase3_test.cr 2>&1)",
+      "Bash(API_KEY=\"REDACTED\" asdf exec crystal run examples/final_test.cr 2>&1)",
+      "Bash(git status:*)",
+      "Bash(git push:*)",
+      "Bash(gh pr:*)",
+      "Bash(git checkout:*)",
+      "Bash(git branch:*)",
+      "Bash(crystal spec:*)",
+      "Bash(crystal build:*)",
+      "Bash(crystal tool:*)",
+      "Bash(git rm:*)",
+      "Bash(git commit:*)",
+      "Skill(keybindings-help)"
+    ]
+  }
+}
